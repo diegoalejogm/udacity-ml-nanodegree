@@ -11801,7 +11801,7 @@ This is a classification problem because given the information for each student,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11853,14 +11853,14 @@ This is a classification problem because given the information for each student,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">difference</span><span class="p">([</span><span class="s1">&#39;passed&#39;</span><span class="p">]))</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
@@ -11890,7 +11890,7 @@ This is a classification problem because given the information for each student,
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -11916,7 +11916,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11998,7 +11998,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12069,7 +12069,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12081,7 +12081,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">num_train</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">num_train</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_all</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12191,7 +12191,7 @@ Yunqian and Guo, G. (eds.) (2014) Support vector machines applications. Switzerl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12265,7 +12265,7 @@ Yunqian and Guo, G. (eds.) (2014) Support vector machines applications. Switzerl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12274,33 +12274,24 @@ Yunqian and Guo, G. (eds.) (2014) Support vector machines applications. Switzerl
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">()</span>
-
-<span class="c1"># TODO: Set up the training set sizes</span>
-<span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">y_train_100</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
-
-<span class="n">X_train_200</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">]</span>
-<span class="n">y_train_200</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">]</span>
-
-<span class="n">X_train_300</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">300</span><span class="p">]</span>
-<span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">300</span><span class="p">]</span>
+<span class="n">my_random_state</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">my_random_state</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">my_random_state</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">my_random_state</span><span class="p">)</span>
 
 <span class="c1"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
-<span class="c1"># Classifier A</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="c1"># Classifier B</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="c1"># Classifier C</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
+    
+    <span class="c1"># show the estimator type</span>
+    <span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">{}: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Set up the training set sizes</span>
+    <span class="c1"># loop thru training sizes</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]:</span>
+        
+        <span class="c1"># create training data from first 100, then 200, then 300 points</span>
+        <span class="n">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12313,68 +12304,77 @@ Yunqian and Guo, G. (eds.) (2014) Support vector machines applications. Switzerl
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.0531 seconds
-Made predictions in 0.0017 seconds.
-F1 score for training set: 1.0000.
+<pre>
+RandomForestClassifier: 
+
+Training a RandomForestClassifier using a training set size of 100. . .
+Trained model in 0.0415 seconds
+Made predictions in 0.0014 seconds.
+F1 score for training set: 0.9927.
 Made predictions in 0.0018 seconds.
-F1 score for test set: 0.7368.
+F1 score for test set: 0.7755.
 
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.1115 seconds
-Made predictions in 0.0021 seconds.
-F1 score for training set: 0.9887.
-Made predictions in 0.0013 seconds.
-F1 score for test set: 0.7704.
+Trained model in 0.0708 seconds
+Made predictions in 0.0017 seconds.
+F1 score for training set: 0.9925.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.6667.
 
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.0403 seconds
-Made predictions in 0.0030 seconds.
-F1 score for training set: 0.9975.
-Made predictions in 0.0017 seconds.
-F1 score for test set: 0.7164.
+Trained model in 0.0324 seconds
+Made predictions in 0.0027 seconds.
+F1 score for training set: 0.9800.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.6923.
+
+
+SVC: 
 
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0016 seconds.
-F1 score for training set: 0.8537.
+Trained model in 0.0017 seconds
+Made predictions in 0.0009 seconds.
+F1 score for training set: 0.8774.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.8323.
+F1 score for test set: 0.8205.
 
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0053 seconds
-Made predictions in 0.0027 seconds.
-F1 score for training set: 0.8859.
-Made predictions in 0.0017 seconds.
-F1 score for test set: 0.8312.
+Trained model in 0.0043 seconds
+Made predictions in 0.0034 seconds.
+F1 score for training set: 0.8636.
+Made predictions in 0.0014 seconds.
+F1 score for test set: 0.8052.
 
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0098 seconds
-Made predictions in 0.0073 seconds.
-F1 score for training set: 0.8780.
-Made predictions in 0.0021 seconds.
-F1 score for test set: 0.8158.
+Trained model in 0.0103 seconds
+Made predictions in 0.0055 seconds.
+F1 score for training set: 0.8584.
+Made predictions in 0.0018 seconds.
+F1 score for test set: 0.7651.
+
+
+GradientBoostingClassifier: 
 
 Training a GradientBoostingClassifier using a training set size of 100. . .
-Trained model in 0.0676 seconds
-Made predictions in 0.0006 seconds.
+Trained model in 0.0860 seconds
+Made predictions in 0.0009 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0004 seconds.
-F1 score for test set: 0.7943.
+Made predictions in 0.0005 seconds.
+F1 score for test set: 0.8000.
 
 Training a GradientBoostingClassifier using a training set size of 200. . .
-Trained model in 0.0861 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.9962.
+Trained model in 0.0846 seconds
 Made predictions in 0.0009 seconds.
-F1 score for test set: 0.7402.
+F1 score for training set: 0.9925.
+Made predictions in 0.0006 seconds.
+F1 score for test set: 0.7424.
 
 Training a GradientBoostingClassifier using a training set size of 300. . .
-Trained model in 0.1166 seconds
-Made predictions in 0.0012 seconds.
-F1 score for training set: 0.9730.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.7971.
+Trained model in 0.0963 seconds
+Made predictions in 0.0010 seconds.
+F1 score for training set: 0.9757.
+Made predictions in 0.0007 seconds.
+F1 score for test set: 0.7143.
 
 </pre>
 </div>
@@ -12412,24 +12412,24 @@ F1 score for test set: 0.7971.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0418</td>
-<td style="text-align:center">0.0012</td>
-<td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.8029</td>
+<td style="text-align:center">0.0440</td>
+<td style="text-align:center">0.0013</td>
+<td style="text-align:center">0.9927</td>
+<td style="text-align:center">0.7755</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0267</td>
-<td style="text-align:center">0.0012</td>
-<td style="text-align:center">0.9924</td>
-<td style="text-align:center">0.7910</td>
+<td style="text-align:center">0.0291</td>
+<td style="text-align:center">0.0014</td>
+<td style="text-align:center">0.9925</td>
+<td style="text-align:center">0.6667</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0290</td>
-<td style="text-align:center">0.0016</td>
-<td style="text-align:center">0.9875</td>
-<td style="text-align:center">0.7826</td>
+<td style="text-align:center">0.0271</td>
+<td style="text-align:center">0.0014</td>
+<td style="text-align:center">0.9800</td>
+<td style="text-align:center">0.6923</td>
 </tr>
 </tbody>
 </table>
@@ -12446,24 +12446,24 @@ F1 score for test set: 0.7971.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0014</td>
+<td style="text-align:center">0.0013</td>
 <td style="text-align:center">0.0007</td>
-<td style="text-align:center">0.8537</td>
-<td style="text-align:center">0.8323</td>
+<td style="text-align:center">0.8774</td>
+<td style="text-align:center">0.8205</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0044</td>
-<td style="text-align:center">0.0015</td>
-<td style="text-align:center">0.8859</td>
-<td style="text-align:center">0.8312</td>
+<td style="text-align:center">0.0042</td>
+<td style="text-align:center">0.0016</td>
+<td style="text-align:center">0.8636</td>
+<td style="text-align:center">0.8052</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0089</td>
+<td style="text-align:center">0.0083</td>
 <td style="text-align:center">0.0017</td>
-<td style="text-align:center">0.8780</td>
-<td style="text-align:center">0.8158</td>
+<td style="text-align:center">0.8584</td>
+<td style="text-align:center">0.7651</td>
 </tr>
 </tbody>
 </table>
@@ -12480,24 +12480,24 @@ F1 score for test set: 0.7971.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0691</td>
-<td style="text-align:center">0.0004</td>
+<td style="text-align:center">0.0757</td>
+<td style="text-align:center">0.0005</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.7857</td>
+<td style="text-align:center">0.8000</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0952</td>
+<td style="text-align:center">0.0916</td>
 <td style="text-align:center">0.0005</td>
-<td style="text-align:center">0.9962</td>
-<td style="text-align:center">0.7402</td>
+<td style="text-align:center">0.9925</td>
+<td style="text-align:center">0.7424</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.1005</td>
-<td style="text-align:center">0.0005</td>
-<td style="text-align:center">0.9730</td>
-<td style="text-align:center">0.7971</td>
+<td style="text-align:center">0.1043</td>
+<td style="text-align:center">0.0006</td>
+<td style="text-align:center">0.9757</td>
+<td style="text-align:center">0.7143</td>
 </tr>
 </tbody>
 </table>
@@ -12532,9 +12532,39 @@ F1 score for test set: 0.7971.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 The model that is most appropiate for solving this problem is the SVC. This is because total cost in time of training and predicting the data is much lower than the cost of doing so with any other model. Additionally, it is the model that overfits the least; the two other models are better when predicting the training data, but perform worse tan the SVC when proedicting the testing data. SVMs perform really good when the amount of data is not too big, just like the current case.</p>
+<p>Nevertheless, if we compare the results for all three models generated prevously with a benchmark of predicting all 'yes' on the test set, we will find out that the F1 scores gotten are worst than the benchmark:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="k">print</span> <span class="s2">&quot;F1 score for predicting all </span><span class="se">\&quot;</span><span class="s2">yes</span><span class="se">\&quot;</span><span class="s2"> on test set: {:.4f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>F1 score for predicting all &#34;yes&#34; on test set: 0.8050
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12551,8 +12581,14 @@ The model that is most appropiate for solving this problem is the SVC. This is b
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong>
-The most appropiated model to use on the student data is the SVC model. It is the bets model for this scenario because it gives the highest accuracy of the models tested, which is 82.6%. This means that it is the model which extrapolates the best to new student data. Additionally, the time to generate this model was 0.0089 seconds, which is much lower than the time that it took with rest of the models. Finally, the time to predict the new data in this model is not significatively higher than the amount of time that it took to predict the same data with the two other models. This makes SVC is the best model to solve this problem.</p>
+<p><strong>Answer: </strong></p>
+<p>Support Vector Machines are a model that is used to learn from data. When predicting discrete values, Support Vector Machines find out which are the datapoints that "represent" the separation between two different target classes of points. These datapoints are then used to find the line that separates the best both clusters, in such a way that the following predictions will have the highest accuracy possible:</p>
+<p><img src="img/svm1.jpg" alt=""> <em>Image source: <a href="http://diggdata.in/post/94066544971/support-vector-machine-without-tears">http://diggdata.in/post/94066544971/support-vector-machine-without-tears</a></em></p>
+<p>In order to make a prediction, the model verifies in which side of the line the new datapoint is. Because the model already knows which side belongs to which class, it just needs to assign the class found in that area.</p>
+<p>Sometimes it is not too easy to separate the data with just a straight line; it might be better to have a curved line that separates the data better. Support Vector Machines are able to use curved lines instead to separate the data, as shown in the following image:</p>
+<p><img src="img/svm2.png" alt=""> <em>Image source: <a href="http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html">http://www.eric-kim.net/eric-kim-net/posts/1/kernel_trick.html</a></em></p>
+<p>Finally, Support Vector Machines can learn very well to classify the datapoints used to learn, generating complex representations. Neverthelees this might worsen the accuracy when predicting new datasets. Because of this, SVMs can be set to misclassify some datapoints when learning, in order to generate simpler models that can extrapolate to new predictions:</p>
+<p><img src="img/svm3.png" alt=""> <em>Image source: <a href="https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression">https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</a></em></p>
 
 </div>
 </div>
@@ -12583,7 +12619,7 @@ The most appropiated model to use on the student data is the SVC model. It is th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -12608,6 +12644,7 @@ The most appropiated model to use on the student data is the SVC model. It is th
 <span class="c1"># Get the estimator</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
 
+<span class="k">print</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_params_</span>
 <span class="c1"># Report the final F1 score for training and testing after parameter tuning</span>
 <span class="k">print</span> <span class="s2">&quot;Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
 <span class="k">print</span> <span class="s2">&quot;Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
@@ -12623,10 +12660,11 @@ The most appropiated model to use on the student data is the SVC model. It is th
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0046 seconds.
-Tuned model has a training F1 score of 0.8145.
+<pre>{&#39;kernel&#39;: &#39;rbf&#39;, &#39;C&#39;: 100, &#39;gamma&#39;: 0.0001}
+Made predictions in 0.0049 seconds.
+Tuned model has a training F1 score of 0.8369.
 Made predictions in 0.0017 seconds.
-Tuned model has a testing F1 score of 0.8366.
+Tuned model has a testing F1 score of 0.7724.
 </pre>
 </div>
 </div>
@@ -12651,12 +12689,320 @@ Tuned model has a testing F1 score of 0.8366.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-The final model's F1 score for training is 81.45% and for testing is 83.66%.</p>
-<p>This model is much better at predicting the testing data than the untuned model, by a difference of 2.18%. It is also better at predicting testing data, rather than training data.</p>
-<p>It also took 0.0001 more seconds than the previous model, to make predictions. This means that it develops better on almost the same conditions. In conclusion, it does much better at solving the current problem.</p>
+The final model's F1 score for training is 83.69% and for testing is 77.24%.</p>
+<p>This model is much better at predicting the testing data than the untuned model, by a difference of 0.73%. It is also better at predicting testing data, rather than training data.</p>
+<p>It also took the same time that the previous model took to make predictions. This means that it develops slightly better given the same conditions.</p>
+<p>In conclusion, it performs better than the untuned model, nevertheless it is still worse than the benchmark generated, which means there are more and simpler models to predict new student data.</p>
+<p>Following you will find all the different scores obtained for every combination of parameters in the grid search done.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid_obj</span><span class="o">.</span><span class="n">grid_scores_</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>parameters</th>
+      <th>mean_validation_score</th>
+      <th>cv_validation_scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>{u'kernel': u'linear', u'C': 1}</td>
+      <td>0.761526</td>
+      <td>[0.732824427481, 0.743243243243, 0.808510638298]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>{u'kernel': u'linear', u'C': 10}</td>
+      <td>0.753740</td>
+      <td>[0.71875, 0.756756756757, 0.785714285714]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>{u'kernel': u'linear', u'C': 100}</td>
+      <td>0.752252</td>
+      <td>[0.714285714286, 0.756756756757, 0.785714285714]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>{u'kernel': u'linear', u'C': 1000}</td>
+      <td>0.755627</td>
+      <td>[0.724409448819, 0.756756756757, 0.785714285714]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>{u'kernel': u'rbf', u'C': 1, u'gamma': 0.001}</td>
+      <td>0.810490</td>
+      <td>[0.807228915663, 0.812121212121, 0.812121212121]</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>{u'kernel': u'rbf', u'C': 1, u'gamma': 0.0001}</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>{u'kernel': u'rbf', u'C': 10, u'gamma': 0.001}</td>
+      <td>0.811574</td>
+      <td>[0.787096774194, 0.810126582278, 0.8375]</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>{u'kernel': u'rbf', u'C': 10, u'gamma': 0.0001}</td>
+      <td>0.805618</td>
+      <td>[0.807228915663, 0.802395209581, 0.807228915663]</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>{u'kernel': u'rbf', u'C': 100, u'gamma': 0.001}</td>
+      <td>0.775687</td>
+      <td>[0.735294117647, 0.765100671141, 0.826666666667]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>{u'kernel': u'rbf', u'C': 100, u'gamma': 0.0001}</td>
+      <td>0.814225</td>
+      <td>[0.792452830189, 0.807453416149, 0.842767295597]</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>{u'kernel': u'rbf', u'C': 1000, u'gamma': 0.001}</td>
+      <td>0.733639</td>
+      <td>[0.713178294574, 0.746478873239, 0.741258741259]</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>{u'kernel': u'rbf', u'C': 1000, u'gamma': 0.0001}</td>
+      <td>0.793399</td>
+      <td>[0.748201438849, 0.78431372549, 0.847682119205]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.001,...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.0001...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.001,...</td>
+      <td>0.807248</td>
+      <td>[0.807228915663, 0.802395209581, 0.812121212121]</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.0001...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.001,...</td>
+      <td>0.812141</td>
+      <td>[0.807228915663, 0.812121212121, 0.817073170732]</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.0001...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.001,...</td>
+      <td>0.810510</td>
+      <td>[0.807228915663, 0.807228915663, 0.817073170732]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>{u'kernel': u'poly', u'C': 1, u'gamma': 0.0001...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.001...</td>
+      <td>0.796688</td>
+      <td>[0.79012345679, 0.79754601227, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.000...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.001...</td>
+      <td>0.809861</td>
+      <td>[0.792682926829, 0.814814814815, 0.822085889571]</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.000...</td>
+      <td>0.804006</td>
+      <td>[0.807228915663, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.001...</td>
+      <td>0.813044</td>
+      <td>[0.807228915663, 0.80981595092, 0.822085889571]</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.000...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.001...</td>
+      <td>0.813028</td>
+      <td>[0.812121212121, 0.80487804878, 0.822085889571]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>{u'kernel': u'poly', u'C': 10, u'gamma': 0.000...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.787629</td>
+      <td>[0.723404255319, 0.789808917197, 0.849673202614]</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.796688</td>
+      <td>[0.79012345679, 0.79754601227, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.806565</td>
+      <td>[0.797297297297, 0.792207792208, 0.830188679245]</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.804006</td>
+      <td>[0.807228915663, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.803195</td>
+      <td>[0.7875, 0.8, 0.822085889571]</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.804006</td>
+      <td>[0.807228915663, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.810589</td>
+      <td>[0.80487804878, 0.80981595092, 0.817073170732]</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>{u'kernel': u'poly', u'C': 100, u'gamma': 0.00...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.761526</td>
+      <td>[0.732824427481, 0.743243243243, 0.808510638298]</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.787629</td>
+      <td>[0.723404255319, 0.789808917197, 0.849673202614]</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.753812</td>
+      <td>[0.721804511278, 0.753424657534, 0.786206896552]</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.807248</td>
+      <td>[0.807228915663, 0.802395209581, 0.812121212121]</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.781145</td>
+      <td>[0.746268656716, 0.789473684211, 0.807692307692]</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.804006</td>
+      <td>[0.807228915663, 0.802395209581, 0.802395209581]</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.800798</td>
+      <td>[0.79754601227, 0.795031055901, 0.80981595092]</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>{u'kernel': u'poly', u'C': 1000, u'gamma': 0.0...</td>
+      <td>0.802395</td>
+      <td>[0.802395209581, 0.802395209581, 0.802395209581]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
