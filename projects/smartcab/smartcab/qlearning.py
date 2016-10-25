@@ -3,19 +3,22 @@ import random
 class Q:
 
 
-    def __init__(self, actions):
+    def __init__(self, actions, rate=.01, epsilon=.9, alpha=.5, gamma=.2):
         self._Q = dict()
-        self.EPSILON = 0.2 # Randomness Prob
-        self.ALPHA = 0.5 # Learning Rate
-        self.GAMMA = 0.5 # Discount factor
         self.INIT_VAL = 200
-        self.actions = actions #[None, 'forward', 'left', 'right']
+        self.ALPHA = alpha            # Learning Rate
+        self.EPSILON = epsilon        # Randomness Prob
+        self.GAMMA = gamma            # Discount factor
+        self.actions = actions        #[None, 'forward', 'left', 'right']
+        self.rate = rate;
 
-    def _update_alpha(self):
-        self.ALPHA = self.ALPHA/2
+    def update_epsilon(self):
+        self.EPSILON -= self.rate if self.EPSILON >= 0.03 else 0
+        print "EPSILON {}".format(self.EPSILON)
 
-    def _update_epsilon(self):
-        self.EPSILON = self.EPSILON/2
+    def update_gamma(self):
+        self.GAMMA += self.rate if self.GAMMA >= 1 else 0
+        self.GAMMA = self.GAMMA
 
     def _get_Q(self, state, action):
 
