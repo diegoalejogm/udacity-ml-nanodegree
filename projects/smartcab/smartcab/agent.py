@@ -90,7 +90,7 @@ class LearningAgent(Agent):
 
 
         # self.Q.update_gamma() if self.planner.next_waypoint() == None
-#        print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
+        print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
 
 def test():
 
@@ -166,8 +166,8 @@ def run():
     """Run the agent for a finite number of trials."""
 
     # Set up environment and agent
-    e = Environment(num_dummies=3)  # create environment (also adds some dummy traffic)
-    Q_learner = Q(actions=e.valid_actions, alpha=1, gamma=0, epsilon=0)
+    e = Environment(num_dummies=20)  # create environment (also adds some dummy traffic)
+    Q_learner = Q(actions=e.valid_actions, alpha=.8, gamma=0, epsilon=.6)
     a = e.create_agent(LearningAgent, Q=Q_learner)  # create agent
     e.set_primary_agent(a, enforce_deadline=True)  # specify agent to track
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
