@@ -3,18 +3,27 @@ import pandas as pd
 import seaborn as sns
 
 
-img_path = './results/img/'
+data = pd.read_csv('results.csv', sep='\t', index_col=0)
+rank = data.copy().drop('alpha', 1).drop('epsilon', 1).drop('gamma', 1)#.drop('scores', 1).drop('scores_last_10', 1)
 
-data = pd.read_csv('results2.csv', sep='\t', index_col=0)
+rank_desc = rank.copy()[['successes', 'successes_last_10']].rank(ascending=False)
+print rank_desc
+rank_asc = rank.copy().drop('successes',1).drop('successes_last_10', 1).rank(ascending=True)
+print rank_asc
+rank['rank'] = rank_asc.join(rank_desc).mean(axis=1)
+print rank.sort_values('rank', ascending=True).head(10)
+
+
 df = None
+
 
 for col in list(data.columns.values):
     if col != 'alpha' and col != 'epsilon' and col != 'gamma' and col != 'eps_iters':
 
-        list_ascending = ['avg_perc_to_deadline', 'avg_perc_to_deadline_last_10']
+        list_ascending = ['perc_to_deadline', 'perc_to_deadline_last_10', 'penalties', 'penalties_last_10','steps', 'steps_last_10']
         ascending = True if col in list_ascending else False
 
-        top5 = data.sort_values(col, ascending=ascending).head(7)
+        top5 = data.sort_values(col, ascending=ascending).head(10)
 
         if df is None:
             df = top5
@@ -25,7 +34,7 @@ for col in list(data.columns.values):
 df_tuners = df.copy().drop_duplicates().sort_index()
 
 df_tuners = df_tuners[['alpha', 'epsilon', 'gamma']]
-sns.heatmap(df_tuners, annot=True, fmt="f", linewidths=.5)
+sns.heatmap(df_tuners, fmt="f", linewidths=.5)
 plt.yticks(rotation=0)
 plt.show()
 
