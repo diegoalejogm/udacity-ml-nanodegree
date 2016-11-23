@@ -1,5 +1,4 @@
-notMNIST_large.tar.gz
-notMNIST.pickle
+notMNIST*
 # Mac OS
 .DS_Store
 
