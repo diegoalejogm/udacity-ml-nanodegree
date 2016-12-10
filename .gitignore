@@ -1,4 +1,6 @@
 notMNIST*
+*.zip
+
 # Mac OS
 .DS_Store
 
