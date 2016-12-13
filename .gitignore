@@ -1,5 +1,11 @@
+extra*
+train*
+test*
 notMNIST*
+sources.p
 *.zip
+
+
 
 # Mac OS
 .DS_Store
