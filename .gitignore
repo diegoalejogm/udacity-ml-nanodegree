@@ -1,6 +1,9 @@
 extra*
 train*
 test*
+final-dataset
+
+*pickle
 notMNIST*
 sources.p
 *.zip
