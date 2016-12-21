@@ -1,3 +1,12 @@
 # Project 5: Capstone
 
-The Capstone Project for the Machine Learning Engineer Nanodegree does not have any requirements for code, libraries, or datasets. You are free to choose your project as you wish! For students who are unable to construct a capstone project on their own imagination, a pre-built project has been provided in `robot_motion_planning`.
+My Capstone Project for the Machine Learning Engineer Nanodegree consists creating a classifier capable of labeling multi-digit numbers found in pictures from natural scenarios. All implementations were coded and tested with Python 2.7. Library requirements for the execution of the iPython Notebooks is listed above.
+
+* h5py
+* numpy
+* pandas
+* PIL
+* matplotlib
+* IPython
+* tensorflow
+* six
