@@ -1,4 +1,18 @@
-# machine-learning
-Content for Udacity's Machine Learning curriculum
+# Udacity Machine-Learning Nanodegree Projects
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. Please refer to [Udacity Terms of Service](https://www.udacity.com/legal) for further information.
+This repository contains all my solutions for the projects proposed on the Udacity's Machine Learning Nanodegree curriculum. Additionally it contains the solutions for other course projects finished in order to complete the Nanodegree.
+
+## Motivation
+
+The purpose of this project it tho showcase my approaches for problem solving during the course of the Nanodegree. It can be used either to get motivated and learn about machine learning, compare your results with mine or improve your results by using my approaches. I hope it is useful to you.
+
+## Usage
+
+Solutions are distributed in two folders:
+* _Projects_: Contains the solutions for each Nanodegree submodule.
+* _Tensorflow_: Contains solutions for the Deep Learning Course.
+
+Each project folder contains its own documentation with the source code and results.
+
+## License
+MIT
